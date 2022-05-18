@@ -4,35 +4,31 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import { Restaurants } from './containers/Restaurants';
-import { Foods } from './containers/Foods';
-import { Orders } from './containers/Orders';
+//components
+import { Restaurants } from './containers/Restaurants.jsx';
+import { Foods } from './containers/Foods.jsx';
+import { Orders } from './containers/Orders.jsx';
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route 
-          exact  
-          path="/restaurants">
-            <Restaurants />
+        <Route exact path='/restaurants'>
+          <Restaurants/>
         </Route>
-
-        <Route 
-          exact 
-          path="/restaurants/:restaurantsId/foods"
-          render={({ match }) =>
-            <Foods 
-              match={match}
-            />}>
+        <Route exact path='/foods'>
+          <Foods/>
         </Route>
-
-        <Route exact path="/orders">
-          <Orders />
+        <Route exact path='/orders'>
+          <Orders/>
         </Route>
-
+        <Route exact
+        path='/restaurants/:restaurantsId/foods'
+        render={({ match }) =>
+          <Foods match={match} />
+        } />
       </Switch>
     </Router>
   );
